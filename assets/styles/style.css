@@ -248,7 +248,7 @@ body {
  
   background-image: linear-gradient(0deg,
       rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)), url("/assets/img/avengers-heroes-endgame-papel-pintado-2560x1080_14.jpg");
+      rgba(0, 0, 0, 0.6)), url("../assets/img/avengers-heroes-endgame-papel-pintado-2560x1080_14.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
