@@ -24,7 +24,6 @@ async function getEvents(){
     console.log(categoriasCheckbox);
     
     let checkBoxClass = Array.from(document.querySelectorAll(".checkBoxClass"))
-    
     checkBoxClass.forEach(checkbox => checkbox.addEventListener('click', filtrarCards))
 
     searchId.addEventListener('input',filtrarCards)

@@ -56,6 +56,7 @@ const printTable1 = (minP,maxP,maxC,id) => {
        
     })
     let categories = new Set(events.map(x => x.category))
+    //el spread lo transforma de array de objeto a un array comun
      categories = [...categories] 
     console.log(categories);
    let stats = categories.map(catego=>{
@@ -78,7 +79,9 @@ printTable2(stats,id)
 }
 
 // se usa reduce para poder realizar operaciones
-//aplicandolas a cada elemento del arreglo
+//aplicandola la funcion a cada elemento del arreglo,
+// el resultado se carga en inicialStat y lo manda a filter
+// esto con el fin de obtener capacidad total, estimado total y ganancia total
 
 function reduceStats(array){
     let inicialStat = {
