@@ -19,21 +19,16 @@ async function getEvents(){
         console.log(error);
     }
      eventsDataUp.forEach(createCard)
+
     const categoriasCheckbox = new Set(eventsDataUp.map(evento => evento.category))
+    
     categoriasCheckbox.forEach(createCheckbox)
     console.log(categoriasCheckbox);
     let checkBoxClass = Array.from(document.querySelectorAll(".checkBoxClass"))
     checkBoxClass.forEach(checkbox => checkbox.addEventListener('click', filtrarCards))
 
     searchId.addEventListener('input',filtrarCards)
-    function filtrarCards(){
-        let checkboxFiltrados = checkboxFilters(eventsDataUp)
-        let searchFiltrados = searchFilters(checkboxFiltrados,searchId.value)
-        if(searchFiltrados.length !== 0 ){
-            contenedorCards.innerHTML = ``
-        }
-        searchFiltrados.forEach(createCard)
-    }
+  
     function checkboxFilters(evento){
         let checkboxFiltering = checkBoxClass.filter(check => check.checked).map(check => check.value)
         if (checkboxFiltering.length !== 0){
@@ -84,17 +79,6 @@ let searchId = document.getElementById('searchId')
 checkBoxClass.forEach(checkbox => checkbox.addEventListener('click', filtrarCards))
 
 
-
-
-function checkboxFilters(evento){
-    let checkboxFiltering = checkBoxClass.filter(check => check.checked).map(check => check.value)
-    if (checkboxFiltering.length !== 0){
-        checkboxFiltering = evento.filter(event => checkboxFiltering.includes(event.category))
-        return checkboxFiltering
-    }
-    return evento
-
-}
 
 
 function searchFilters(array, texto){

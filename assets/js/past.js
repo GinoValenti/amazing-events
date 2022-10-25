@@ -75,18 +75,6 @@ let searchId = document.getElementById('searchId')
 
 
 
-
-function checkboxFilters(evento){
-    let checkboxFiltering = checkBoxClass.filter(check => check.checked).map(check => check.value)
-    if (checkboxFiltering.length !== 0){
-        checkboxFiltering = evento.filter(event => checkboxFiltering.includes(event.category))
-        return checkboxFiltering
-    }
-    return evento
-
-}
-
-
 function searchFilters(array, texto){
     let searFiltering = array.filter(event => event.name.toLowerCase().includes(texto.toLowerCase()))
     if(searFiltering.length === 0){
