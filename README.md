@@ -1,5 +1,6 @@
 # Amazing events
 Aplicación web desarrollada con HTML, CSS, y JAVASCRIPT.
+
 Totalmente responsive.
 
 El estilo cuenta con un poco de Boostrap y AOS library 
