@@ -5,15 +5,15 @@ async function detailsId(){
   let id = location.search.slice(4)
   
   try{
-    var detailsJson = await fetch(`https://mh-amazing.herokuapp.com/amazing`)
+    var detailsJson = await fetch(`https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events`)
     detailsJson = await detailsJson.json()
-    var eventsData = detailsJson.events
-
+    var eventsData = detailsJson
+console.log(eventsData);
     }catch(error){
       console.log(error)
     }
     
-    let eventDetails = eventsData.filter(event => id == event.id)
+    let eventDetails = eventsData.filter(event => id == event._id)
     eventDetails = eventDetails[0]
     createCard(eventDetails)
   

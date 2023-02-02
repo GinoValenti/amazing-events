@@ -5,12 +5,13 @@ const contenedorCards = document.getElementById("card-container")
 
 async function getEvents(){
     try {
-        let response = await fetch ("https://mh-amazing.herokuapp.com/amazing")
+        let response = await fetch ("https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events")
         let events = await response.json()
-        let date = events.date
+       
    
-        let eventos = events.events
+        let eventos = events
         
+        const date = '2022-01-01'
         var eventsDataUp = eventos.filter(x => x.date > date)
         console.log(eventsDataUp);
        

@@ -7,9 +7,9 @@ const contenedorCards = document.getElementById("card-container")
 
 async function getEvents(){
     try {
-        let response = await fetch ("https://mh-amazing.herokuapp.com/amazing")
+        let response = await fetch ("https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events")
         let events = await response.json()
-        var eventsData = events.events
+        var eventsData = events
         console.log(eventsData);
         
     } catch (error) {
@@ -104,8 +104,8 @@ function createCard(x){
   <h5 class="titlee">${x.name}</h5>
   <p> ${x.date.slice(0,10)}</p>
   <p class="card-text "> ${x.description} Only for ${x.price}$ </p>
-  <a href="pages/details.html?id=${x.id}"><button class="card-button">More info</button></a>
-  <a href="pages/details.html?id=${x.id}"><button class="movile-button">More info</button></a>
+  <a href="pages/details.html?id=${x._id}"><button class="card-button">More info</button></a>
+  <a href="pages/details.html?id=${x._id}"><button class="movile-button">More info</button></a>
 </div>
 </div>
     `

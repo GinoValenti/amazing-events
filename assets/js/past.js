@@ -7,16 +7,19 @@ const contenedorCards = document.getElementById("card-container")
 
 async function getEvents(){
     try {
-        let response = await fetch ("https://mh-amazing.herokuapp.com/amazing?time=past")
+        let response = await fetch ("https://63bec0a6f5cfc0949b601cc9.mockapi.io/mindhub/amazing-events")
         let events = await response.json()
-        var eventsData = events.events
+        var eventsData = events
         console.log(eventsData);
         
     } catch (error) {
         console.log(error);
     }
-    eventsData.forEach(createCard)
-    const categoriasCheckbox = new Set(eventsData.map(evento => evento.category))
+    const date = '2022-01-01'
+    const eventsPast = eventsData.filter(() => element => element.date < date)
+    console.log(eventsPast);
+    eventsPast.forEach(createCard)
+    const categoriasCheckbox = new Set(eventsPast.map(evento => evento.category))
     categoriasCheckbox.forEach(createCheckbox)
     console.log(categoriasCheckbox);
     let checkBoxClass = Array.from(document.querySelectorAll(".checkBoxClass"))
@@ -24,7 +27,7 @@ async function getEvents(){
 
     searchId.addEventListener('input',filtrarCards)
     function filtrarCards(){
-        let checkboxFiltrados = checkboxFilters(eventsData)
+        let checkboxFiltrados = checkboxFilters(eventsPast)
         let searchFiltrados = searchFilters(checkboxFiltrados,searchId.value)
         if(searchFiltrados.length !== 0 ){
             contenedorCards.innerHTML = ``
@@ -99,8 +102,8 @@ function createCard(x){
   <h5 class="titlee">${x.name}</h5>
   <p> ${x.date.slice(0,10)}</p>
   <p class="card-text "> ${x.description} Only for ${x.price}$ </p>
-  <a href="./details.html?id=${x.id}"><button class="card-button">More info</button></a>
-  <a href="./details.html?id=${x.id}"><button class="movile-button">More info</button></a>
+  <a href="./details.html?id=${x._id}"><button class="card-button">More info</button></a>
+  <a href="./details.html?id=${x._id}"><button class="movile-button">More info</button></a>
 </div>
 </div>
     `
